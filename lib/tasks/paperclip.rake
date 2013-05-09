@@ -1,4 +1,4 @@
-require 'paperclip/tasks/attachments'
+require 'paperclip/registry'
 
 module Paperclip
   module Task
@@ -12,7 +12,7 @@ module Paperclip
       klass = Paperclip.class_for(klass.to_s)
       name = ENV['ATTACHMENT'] || ENV['attachment']
 
-      attachment_names = Paperclip::Tasks::Attachments.names_for(klass)
+      attachment_names = Paperclip::Registry.names_for(klass)
 
       if attachment_names.empty?
         raise "Class #{klass.name} has no attachments specified"

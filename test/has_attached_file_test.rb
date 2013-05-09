@@ -76,11 +76,11 @@ class HasAttachedFileTest < Test::Unit::TestCase
 
     def registers_with_tasks
       a_class = stub_class
-      Paperclip::Tasks::Attachments.stubs(:add)
+      Paperclip::Registry.stubs(:add)
 
       Paperclip::HasAttachedFile.define_on(a_class, @attachment_name, {size: 1})
 
-      assert_received(Paperclip::Tasks::Attachments, :add) do |expect|
+      assert_received(Paperclip::Registry, :add) do |expect|
         expect.with(a_class, @attachment_name, {size: 1})
       end
     end

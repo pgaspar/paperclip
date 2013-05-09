@@ -67,7 +67,7 @@ module Paperclip
     end
 
     def register_with_rake_tasks
-      Paperclip::Tasks::Attachments.add(@klass, @name, @options)
+      Paperclip::Registry.add(@klass, @name, @options)
     end
 
     def add_active_record_callbacks
