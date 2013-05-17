@@ -47,6 +47,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency('launchy')
   s.add_development_dependency('rake')
   s.add_development_dependency('fakeweb')
-  s.add_development_dependency('railties')
+  s.add_development_dependency('railties', '~> 3.2.12')
   s.add_development_dependency('actionmailer')
 end
