@@ -1,4 +1,5 @@
 require 'open-uri'
+require 'open_uri_redirections'
 
 module Paperclip
   class UriAdapter < AbstractAdapter
@@ -14,7 +15,7 @@ module Paperclip
     private
 
     def download_content
-      open(@target)
+      open(@target, :allow_redirections => :all)
     end
 
     def cache_current_values

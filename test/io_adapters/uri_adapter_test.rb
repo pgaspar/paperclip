@@ -99,4 +99,25 @@ class UriProxyTest < Test::Unit::TestCase
     end
   end
 
+  context "a url with redirection from HTTPS to HTTP" do
+    setup do
+      @uri = URI.parse("https://www.striking.ly/assets/logo.png")
+      @subject = Paperclip.io_adapters.for(@uri)
+    end
+
+    should "return a file name" do
+      assert_equal "logo.png", @subject.original_filename
+    end
+  end
+
+  context "a url with redirection from HTTP to HTTPS" do
+    setup do
+      @uri = URI.parse("http://www.linux.by/images/b_articles.gif")
+      @subject = Paperclip.io_adapters.for(@uri)
+    end
+
+    should "return a file name" do
+      assert_equal "b_articles.gif", @subject.original_filename
+    end
+  end
 end

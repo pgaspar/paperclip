@@ -30,6 +30,7 @@ Gem::Specification.new do |s|
   s.add_dependency('activesupport', '>= 3.0.0')
   s.add_dependency('cocaine', '~> 0.5.0')
   s.add_dependency('mime-types')
+  s.add_dependency('open_uri_redirections', '~> 0.1.1')
 
   s.add_development_dependency('shoulda')
   s.add_development_dependency('appraisal')
